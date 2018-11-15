@@ -1,0 +1,228 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <org.ros.android.view.RosImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+
+        <LinearLayout
+            android:id="@+id/po_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="top">
+
+            <Switch
+                android:id="@+id/switchLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textOff="Position"
+                android:textOn="Orientation" />
+
+            <Switch
+                android:id="@+id/switchRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:textOff="Position"
+                android:textOn="Orientation" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/joystick_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3">
+
+            <FrameLayout
+                android:id="@+id/FrameLayout_left"
+                android:layout_width="32dp"
+                android:layout_height="175dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <SeekBar
+                    android:id="@+id/seekBarView_leftZ"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:rotation="270" />
+
+            </FrameLayout>
+
+
+            <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/joystickView_leftXY"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/FrameLayout_left"
+                android:alpha="0.8"
+                custom:JV_borderColor="#e74c3c"
+                custom:JV_buttonColor="#e74c3c" />
+            +
+
+            <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/joystickView_rightXY"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@+id/FrameLayout_right"
+                android:alpha="0.8"
+                custom:JV_borderColor="#e74c3c"
+                custom:JV_buttonColor="#e74c3c" />
+
+
+            <FrameLayout
+                android:id="@+id/FrameLayout_right"
+                android:layout_width="32dp"
+                android:layout_height="175dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:minHeight="175dp"
+                android:orientation="vertical">
+
+                <SeekBar
+                    android:id="@+id/seekBarView_rightZ"
+                    android:layout_width="180dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:rotation="270" />
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Left Arm Grasp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tilt "
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Right Arm Grasp"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <SeekBar
+                android:id="@+id/graspLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+
+                    android:text="Default"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Head"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Body O"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_body_joystick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Body J"
+                    android:textColor="@android:color/white" />
+            </RadioGroup>
+
+
+            <SeekBar
+                android:id="@+id/graspRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
+
+
+

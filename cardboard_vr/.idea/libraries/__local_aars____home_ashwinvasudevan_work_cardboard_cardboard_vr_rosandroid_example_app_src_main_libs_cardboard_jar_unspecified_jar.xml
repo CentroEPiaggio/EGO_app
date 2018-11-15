@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="__local_aars__:/home/ashwinvasudevan/work/cardboard/cardboard_vr/rosandroid-example-app/src/main/libs/cardboard.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/rosandroid-example-app/src/main/libs/cardboard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
